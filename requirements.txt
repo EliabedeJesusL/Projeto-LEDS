@@ -1,0 +1,4 @@
+fastapi==0.111.0
+uvicorn==0.30.1
+pydantic==2.8.2
+Se depois você adicionar SQLite, não precisa pôr nada porque o SQLite já vem embutido no Python. Mas se usar Postgres, aí sim adiciona psycopg2 ou asyncpg.
