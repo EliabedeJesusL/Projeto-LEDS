@@ -1,5 +1,4 @@
 # PROJETO LEDS - ELIABE DE JESUS LOUREIRO
-# Criação do banco e tabelas
 
 import sqlite3
 

@@ -3,7 +3,7 @@
 import modulo
 
 def exibir_menu():
-    """Exibe o menu principal do sistema."""
+    # Exibe o menu principal do sistema.
     print("\n=== Projeto LEDS - ELIABE DE JESUS ===")
     print("Escolha conforme o seu interesse:")
     print("1 - Buscar concurso por CPF")
@@ -12,7 +12,7 @@ def exibir_menu():
 
 
 def main():
-    """Executa o loop principal da aplicação."""
+    # Executa o loop principal da aplicação.
     concursos = modulo.carregar_concursos()
     candidatos = modulo.carregar_candidatos()
 

@@ -1,5 +1,4 @@
 # PROJETO LEDS - ELIABE DE JESUS LOUREIRO
-# Responsável por importar dados dos arquivos .txt para o banco
 
 import sqlite3
 import csv
@@ -7,15 +6,15 @@ import csv
 DB_NAME = "projeto_leds.db"
 
 def normalizar_cpf(cpf: str) -> str:
-    """Normaliza um CPF removendo caracteres especiais."""
+    # Normaliza um CPF removendo caracteres especiais.
     return cpf.replace(".", "").replace("-", "").replace(" ", "")
 
 def importar_candidatos() -> None:
-    """Importa candidatos do arquivo candidatos.txt para o banco."""
+    # Importa candidatos do arquivo candidatos.txt para o banco.
     with sqlite3.connect(DB_NAME) as conexao, open("candidatos.txt", "r", encoding="utf-8") as f:
         cursor = conexao.cursor()
         leitor = csv.reader(f)
-        next(leitor)  # Pular cabeçalho
+        next(leitor)  # Pula cabeçalho
         for nome, nascimento, cpf, profissoes in leitor:
             cursor.execute(
                 """
@@ -29,7 +28,7 @@ def importar_candidatos() -> None:
 
 
 def importar_concursos() -> None:
-    """Importa concursos do arquivo concursos.txt para o banco."""
+    # Importa concursos do arquivo concursos.txt para o banco.
     with sqlite3.connect(DB_NAME) as conexao, open("concursos.txt", "r", encoding="utf-8") as f:
         cursor = conexao.cursor()
         leitor = csv.reader(f)

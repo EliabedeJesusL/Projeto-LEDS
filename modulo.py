@@ -1,5 +1,4 @@
 # PROJETO LEDS - ELIABE DE JESUS LOUREIRO
-# Responsável pelas consultas ao banco de dados
 
 import sqlite3
 from typing import List, Dict
@@ -8,12 +7,12 @@ DB_NAME = "projeto_leds.db"
 
 
 def normalizar_cpf(cpf: str) -> str:
-    """Remove pontos, traços e espaços de um CPF."""
+    # Remove pontos, traços e espaços de um CPF.
     return cpf.replace(".", "").replace("-", "").replace(" ", "")
 
 
 def carregar_candidatos() -> List[Dict]:
-    """Carrega todos os candidatos do banco de dados."""
+    # Carrega todos os candidatos do banco de dados.
     with sqlite3.connect(DB_NAME) as conexao:
         cursor = conexao.cursor()
         cursor.execute("SELECT nome, nascimento, cpf, profissoes FROM candidatos")
@@ -31,7 +30,7 @@ def carregar_candidatos() -> List[Dict]:
 
 
 def carregar_concursos() -> List[Dict]:
-    """Carrega todos os concursos do banco de dados."""
+    # Carrega todos os concursos do banco de dados.
     with sqlite3.connect(DB_NAME) as conexao:
         cursor = conexao.cursor()
         cursor.execute("SELECT orgao, edital, codigo, vagas FROM concursos")
@@ -49,7 +48,7 @@ def carregar_concursos() -> List[Dict]:
 
 
 def buscar_concurso(cpf: str, candidatos: List[Dict], concursos: List[Dict]) -> None:
-    """Exibe concursos compatíveis com o CPF informado."""
+    # Exibe concursos compatíveis com o CPF informado.
     cpf = normalizar_cpf(cpf)
     candidato = next((c for c in candidatos if c["cpf"] == cpf), None)
 
@@ -76,7 +75,7 @@ def buscar_concurso(cpf: str, candidatos: List[Dict], concursos: List[Dict]) -> 
 
 
 def buscar_candidato(codigo: str, candidatos: List[Dict], concursos: List[Dict]) -> None:
-    """Exibe candidatos compatíveis com o código de concurso informado."""
+    # Exibe candidatos compatíveis com o código de concurso informado.
     concursos_encontrados = [c for c in concursos if c["codigo"] == codigo]
 
     if not concursos_encontrados:
