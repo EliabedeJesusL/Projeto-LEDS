@@ -18,6 +18,7 @@ O desafio consiste em desenvolver um sistema que permita realizar buscas em conc
 - **FastAPI** (para expor a API REST)
 - **Uvicorn** (servidor ASGI para rodar a API)
 - **CSV** (para importação inicial de dados)
+- **Pytest** (para testes unitários)
 
 ---
 
@@ -30,6 +31,7 @@ O desafio consiste em desenvolver um sistema que permita realizar buscas em conc
 │── modulo.py            # Funções de negócio (carregar e buscar dados)
 │── database_setup.py    # Criação do banco e tabelas
 │── importar_dados.py    # Importação dos dados CSV para o banco
+│── test_modulo.py       # Testes unitários com Pytest
 │── candidatos.txt       # Base inicial de candidatos
 │── concursos.txt        # Base inicial de concursos
 │── projeto_leds.db      # Banco de dados SQLite (gerado após setup/importação)
@@ -98,6 +100,32 @@ Endpoints principais:
 
 ---
 
+## 🧪 Testes Unitários
+
+O projeto possui **testes unitários** implementados com `pytest`.
+
+### Rodando os testes:
+```bash
+python -m pytest -v
+```
+
+Exemplo de saída esperada:
+```
+collected 7 items
+
+test_modulo.py::test_normalizar_cpf PASSED
+test_modulo.py::test_carregar_candidatos PASSED
+test_modulo.py::test_carregar_concursos PASSED
+test_modulo.py::test_buscar_concurso_encontra PASSED
+test_modulo.py::test_buscar_concurso_invalido PASSED
+test_modulo.py::test_buscar_candidato_encontra PASSED
+test_modulo.py::test_buscar_candidato_invalido PASSED
+```
+
+✅ Todos os testes passando confirmam que o sistema funciona corretamente.
+
+---
+
 ## 📖 Documentação do Código
 
 ### `main.py`
@@ -115,7 +143,6 @@ Endpoints principais:
 - `criar_banco()` → Cria as tabelas `candidatos` e `concursos` no SQLite.
 
 ### `importar_dados.py`
-- `normalizar_cpf(cpf)` → Normaliza um CPF removendo caracteres especiais.
 - `importar_candidatos()` → Insere candidatos do `candidatos.txt` no banco.
 - `importar_concursos()` → Insere concursos do `concursos.txt` no banco.
 
@@ -130,6 +157,7 @@ Endpoints principais:
 - [x] **Documentação do Código** → Docstrings em todas as funções.
 - [x] **Documentação da Solução** → README completo (setup, uso e arquitetura).
 - [x] **Tratamento de Erros** → CPF inexistente, concurso não encontrado, dados ausentes.
+- [x] **Testes Unitários** → Implementados com Pytest.
 
 ---
 
@@ -139,10 +167,7 @@ Endpoints principais:
 - [x] Utilizar banco de dados (SQLite) → **+30 pontos**
 - [x] Implementar Clean Code (nomes claros, remoção de redundâncias) → **+20 pontos**
 - [x] Implementar o padrão de programação da tecnologia escolhida (PEP8, docstrings) → **+20 pontos**
-- [ ] Testes unitários (não implementado ainda) → **+15 pontos (possível incremento)**
-- [ ] Testes comportamentais (não implementado ainda) → **+15 pontos (possível incremento)**
-- [ ] Github Actions + SonarQube (não implementado ainda) → **+20 pontos possíveis**
-- [ ] Docker (não implementado ainda) → **+5 pontos possíveis**
+- [x] Implementar testes unitários (Pytest) → **+15 pontos**
 
 ---
 

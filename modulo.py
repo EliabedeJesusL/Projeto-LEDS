@@ -17,7 +17,6 @@ def carregar_candidatos() -> List[Dict]:
         cursor = conexao.cursor()
         cursor.execute("SELECT nome, nascimento, cpf, profissoes FROM candidatos")
         registros = cursor.fetchall()
-        conexao.close()
 
     return [
         {
@@ -36,7 +35,6 @@ def carregar_concursos() -> List[Dict]:
         cursor = conexao.cursor()
         cursor.execute("SELECT orgao, edital, codigo, vagas FROM concursos")
         registros = cursor.fetchall()
-        conexao.close()
 
     return [
         {
