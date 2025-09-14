@@ -172,4 +172,4 @@ test_modulo.py::test_buscar_candidato_invalido PASSED
 ---
 
 ## 👤 Autor
-Projeto desenvolvido por **Eliabe de Jesus Loureiro**.
+Projeto desenvolvido por **Eliabe De Jesus Loureiro**.
