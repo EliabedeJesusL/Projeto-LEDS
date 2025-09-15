@@ -32,8 +32,6 @@ O desafio consiste em desenvolver um sistema que permita realizar buscas em conc
 │── database_setup.py    # Criação do banco e tabelas
 │── importar_dados.py    # Importação dos dados CSV para o banco
 │── test_modulo.py       # Testes unitários com Pytest
-│── candidatos.txt       # Base inicial de candidatos
-│── concursos.txt        # Base inicial de concursos
 │── projeto_leds.db      # Banco de dados SQLite (gerado após setup/importação)
 │── requirements.txt     # Dependências do projeto
 │── README.md            # Documentação

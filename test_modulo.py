@@ -3,14 +3,14 @@
 import modulo
 
 def test_normalizar_cpf():
-    """Testa a normalização de CPFs."""
+    # Testa a normalização de CPFs.
     assert modulo.normalizar_cpf("123.456.789-00") == "12345678900"
     assert modulo.normalizar_cpf(" 111.222.333-44 ") == "11122233344"
     assert modulo.normalizar_cpf("98765432100") == "98765432100"
 
 
 def test_carregar_candidatos():
-    """Testa se os candidatos são carregados corretamente do banco."""
+    # Testa se os candidatos são carregados corretamente do banco.
     candidatos = modulo.carregar_candidatos()
     assert isinstance(candidatos, list)
     assert all(isinstance(c, dict) for c in candidatos)
@@ -18,7 +18,7 @@ def test_carregar_candidatos():
 
 
 def test_carregar_concursos():
-    """Testa se os concursos são carregados corretamente do banco."""
+    # Testa se os concursos são carregados corretamente do banco.
     concursos = modulo.carregar_concursos()
     assert isinstance(concursos, list)
     assert all(isinstance(c, dict) for c in concursos)
@@ -26,7 +26,7 @@ def test_carregar_concursos():
 
 
 def test_buscar_concurso_encontra(capsys):
-    """Testa se a busca de concurso por CPF retorna algo válido."""
+    # Testa se a busca de concurso por CPF retorna algo válido.
     candidatos = modulo.carregar_candidatos()
     concursos = modulo.carregar_concursos()
 
@@ -38,7 +38,7 @@ def test_buscar_concurso_encontra(capsys):
 
 
 def test_buscar_concurso_invalido(capsys):
-    """Testa se um CPF inexistente é tratado corretamente."""
+    # Testa se um CPF inexistente é tratado corretamente.
     candidatos = modulo.carregar_candidatos()
     concursos = modulo.carregar_concursos()
 
@@ -48,7 +48,7 @@ def test_buscar_concurso_invalido(capsys):
 
 
 def test_buscar_candidato_encontra(capsys):
-    """Testa se a busca de candidatos por concurso retorna algo válido."""
+    # Testa se a busca de candidatos por concurso retorna algo válido.
     candidatos = modulo.carregar_candidatos()
     concursos = modulo.carregar_concursos()
 
@@ -60,7 +60,7 @@ def test_buscar_candidato_encontra(capsys):
 
 
 def test_buscar_candidato_invalido(capsys):
-    """Testa se um código de concurso inexistente é tratado corretamente."""
+    # Testa se um código de concurso inexistente é tratado corretamente.
     candidatos = modulo.carregar_candidatos()
     concursos = modulo.carregar_concursos()
 
